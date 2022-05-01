@@ -10,7 +10,7 @@ Marten.configure :test do |config|
   config.secret_key = "__insecure_#{Random::Secure.random_bytes(32).hexstring}__"
 
   config.installed_apps = [
-    DBSessionStore::App,
+    MartenDBSessionStore::App,
   ]
 
   for_mysql do

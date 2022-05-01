@@ -1,4 +1,4 @@
-module DBSessionStore
+module MartenDBSessionStore
   # Database session store.
   class Store < Marten::HTTP::Session::Store::Base
     @entry : Entry? = nil
