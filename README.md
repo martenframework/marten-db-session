@@ -16,7 +16,19 @@ And run `shards install` afterwards.
 
 Once installed you can configure your project to use the database session store by following these steps:
 
-First, add the `MartenDBSessionStore::App` app class to your project's `installed_apps` setting and ensure that your `sessions.store` setting is set to `:db`:
+First, add the following requirement to your project's `src/project.cr` file:
+
+```crystal
+require "marten_db_session_store"
+```
+
+Secondly, add the following requirement to the top-level `manage.cr` file in order to make Marten DB Session Store migrations available to your project:
+
+```crystal
+require "marten_db_session_store/cli"
+```
+
+Then, add the `MartenDBSessionStore::App` app class to your project's `installed_apps` setting and ensure that your `sessions.store` setting is set to `:db`:
 
 ```crystal
 Marten.configure do |config|
@@ -31,7 +43,7 @@ Marten.configure do |config|
 end
 ```
 
-Then run the `marten migrate` command in order to install the DB session entry model.
+Finally run the `marten migrate` command in order to install the DB session entry model.
 
 _Congrats! You’re in!_ From now on, your session data will be persisted in a `marten_db_session_store_entry` table.
 
