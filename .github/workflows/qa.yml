@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install shards
-        run: shards install
+        run: shards install --ignore-crystal-version
       - name: Run QA checks
         run: make qa
