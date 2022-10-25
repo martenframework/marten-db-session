@@ -123,14 +123,14 @@ describe MartenDBSessionStore::Store do
     it "does not load the session hash if the session entry is expired" do
       MartenDBSessionStore::Entry.create!(
         key: "testkey",
-        expires: Time.local - Time::Span.new(seconds: 60),
+        expires: Time.local(Marten.settings.time_zone) - Time::Span.new(seconds: 60),
         data: {"foo": "bar"}.to_json
       )
 
       store = MartenDBSessionStore::Store.new("testkey")
       store.load
 
-      store.empty?.should be_true
+      store.size.should eq 0
       store["foo"]?.should be_nil
     end
 
@@ -138,7 +138,7 @@ describe MartenDBSessionStore::Store do
       store = MartenDBSessionStore::Store.new("testkey")
       store.load
 
-      store.empty?.should be_true
+      store.size.should eq 0
     end
 
     it "resets the session key if the session entry cannot be loaded because it is expired" do
