@@ -1,5 +1,10 @@
 # Marten DB Session Store
 
+[![Version](https://img.shields.io/github/v/tag/martenframework/marten-db-session-store)](https://github.com/martenframework/marten-db-session-store/tags)
+[![License](https://img.shields.io/github/license/martenframework/marten-db-session-store)](https://github.com/martenframework/marten-db-session-store/blob/main/LICENSE)
+[![CI](https://github.com/martenframework/marten-db-session-store/workflows/Specs/badge.svg)](https://github.com/martenframework/marten-db-session-store/actions)
+[![CI](https://github.com/martenframework/marten-db-session-store/workflows/QA/badge.svg)](https://github.com/martenframework/marten-db-session-store/actions)
+
 **Marten DB Session Store** is a database session store for the Marten web framework. 
 
 ## Installation
