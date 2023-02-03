@@ -5,7 +5,7 @@
 [![CI](https://github.com/martenframework/marten-db-session-store/workflows/Specs/badge.svg)](https://github.com/martenframework/marten-db-session-store/actions)
 [![CI](https://github.com/martenframework/marten-db-session-store/workflows/QA/badge.svg)](https://github.com/martenframework/marten-db-session-store/actions)
 
-**Marten DB Session Store** is a database session store for the Marten web framework. 
+**Marten DB Session Store** is a database [session store](https://martenframework.com/docs/handlers-and-http/sessions#session-stores) for the Marten web framework. 
 
 ## Installation
 
@@ -17,7 +17,7 @@ dependencies:
     github: martenframework/marten-db-session-store
 ```
 
-And run `shards install` afterwards.
+And run `shards install` afterward.
 
 Once installed you can configure your project to use the database session store by following these steps:
 
@@ -48,7 +48,7 @@ Marten.configure do |config|
 end
 ```
 
-Finally run the `marten migrate` command in order to install the DB session entry model.
+Finally, run the `marten migrate` command in order to install the DB session entry model.
 
 _Congrats! You’re in!_ From now on, your session data will be persisted in a `marten_db_session_store_entry` table.
 
