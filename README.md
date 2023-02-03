@@ -55,7 +55,7 @@ _Congrats! You’re in!_ From now on, your session data will be persisted in a `
 ## Authors
 
 Morgan Aubert ([@ellmetha](https://github.com/ellmetha)) and 
-[contributors](https://github.com/martenframework/marten/contributors).
+[contributors](https://github.com/martenframework/marten-db-session-store/contributors).
 
 ## License
 
