@@ -5,7 +5,7 @@
 [![CI](https://github.com/martenframework/marten-db-session/workflows/Specs/badge.svg)](https://github.com/martenframework/marten-db-session/actions)
 [![CI](https://github.com/martenframework/marten-db-session/workflows/QA/badge.svg)](https://github.com/martenframework/marten-db-session/actions)
 
-**Marten DB Session** is a database [session store](https://martenframework.com/docs/handlers-and-http/sessions#session-stores) for the Marten web framework. 
+**Marten DB Session** provides a database [session store](https://martenframework.com/docs/handlers-and-http/sessions#session-stores) for the Marten web framework. 
 
 ## Installation
 
