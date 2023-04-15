@@ -1,4 +1,4 @@
-# Marten DB Session Store
+# Marten DB Session
 
 [![Version](https://img.shields.io/github/v/tag/martenframework/marten-db-session-store)](https://github.com/martenframework/marten-db-session-store/tags)
 [![License](https://img.shields.io/github/license/martenframework/marten-db-session-store)](https://github.com/martenframework/marten-db-session-store/blob/main/LICENSE)
