@@ -1,9 +1,9 @@
 # Marten DB Session
 
-[![Version](https://img.shields.io/github/v/tag/martenframework/marten-db-session-store)](https://github.com/martenframework/marten-db-session-store/tags)
-[![License](https://img.shields.io/github/license/martenframework/marten-db-session-store)](https://github.com/martenframework/marten-db-session-store/blob/main/LICENSE)
-[![CI](https://github.com/martenframework/marten-db-session-store/workflows/Specs/badge.svg)](https://github.com/martenframework/marten-db-session-store/actions)
-[![CI](https://github.com/martenframework/marten-db-session-store/workflows/QA/badge.svg)](https://github.com/martenframework/marten-db-session-store/actions)
+[![Version](https://img.shields.io/github/v/tag/martenframework/marten-db-session)](https://github.com/martenframework/marten-db-session/tags)
+[![License](https://img.shields.io/github/license/martenframework/marten-db-session)](https://github.com/martenframework/marten-db-session/blob/main/LICENSE)
+[![CI](https://github.com/martenframework/marten-db-session/workflows/Specs/badge.svg)](https://github.com/martenframework/marten-db-session/actions)
+[![CI](https://github.com/martenframework/marten-db-session/workflows/QA/badge.svg)](https://github.com/martenframework/marten-db-session/actions)
 
 **Marten DB Session Store** is a database [session store](https://martenframework.com/docs/handlers-and-http/sessions#session-stores) for the Marten web framework. 
 
@@ -13,8 +13,8 @@ Simply add the following entry to your project's `shard.yml`:
 
 ```yaml
 dependencies:
-  marten_db_session_store:
-    github: martenframework/marten-db-session-store
+  marten_db_session:
+    github: martenframework/marten-db-session
 ```
 
 And run `shards install` afterward.
@@ -24,13 +24,13 @@ Once installed you can configure your project to use the database session store 
 First, add the following requirement to your project's `src/project.cr` file:
 
 ```crystal
-require "marten_db_session_store"
+require "marten_db_session"
 ```
 
 Secondly, add the following requirement to the top-level `manage.cr` file in order to make Marten DB Session Store migrations available to your project:
 
 ```crystal
-require "marten_db_session_store/cli"
+require "marten_db_session/cli"
 ```
 
 Then, add the `MartenDBSession::App` app class to your project's `installed_apps` setting and ensure that your `sessions.store` setting is set to `:db`:
@@ -55,7 +55,7 @@ _Congrats! You’re in!_ From now on, your session data will be persisted in a `
 ## Authors
 
 Morgan Aubert ([@ellmetha](https://github.com/ellmetha)) and 
-[contributors](https://github.com/martenframework/marten-db-session-store/contributors).
+[contributors](https://github.com/martenframework/marten-db-session/contributors).
 
 ## License
 
