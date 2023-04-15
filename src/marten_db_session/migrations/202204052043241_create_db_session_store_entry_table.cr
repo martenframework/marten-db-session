@@ -1,4 +1,4 @@
-class Migration::MartenDBSessionStore::V202204052043241 < Marten::Migration
+class Migration::MartenDBSession::V202204052043241 < Marten::Migration
   def plan
     create_table :marten_db_session_store_entry do
       column :key, :string, max_size: 40, primary_key: true

@@ -33,14 +33,14 @@ Secondly, add the following requirement to the top-level `manage.cr` file in ord
 require "marten_db_session_store/cli"
 ```
 
-Then, add the `MartenDBSessionStore::App` app class to your project's `installed_apps` setting and ensure that your `sessions.store` setting is set to `:db`:
+Then, add the `MartenDBSession::App` app class to your project's `installed_apps` setting and ensure that your `sessions.store` setting is set to `:db`:
 
 ```crystal
 Marten.configure do |config|
   # Other settings...
 
   config.installed_apps = [
-    MartenDBSessionStore::App,
+    MartenDBSession::App,
     # Other apps..
   ]
 

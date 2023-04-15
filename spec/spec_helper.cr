@@ -15,7 +15,7 @@ require "timecop"
   require "sqlite3"
 {% end %}
 
-require "../src/marten_db_session_store"
+require "../src/marten_db_session"
 
 require "./test_project"
 
