@@ -44,6 +44,52 @@ describe MartenDBSession::Store do
     end
   end
 
+  describe "#clear_expired_entries" do
+    it "removes an entry which has expired" do
+      MartenDBSession::Entry.create!(
+        key: "testkey",
+        expires: Time.local - Time::Span.new(hours: 48),
+        data: {"foo" => "bar"}.to_json
+      )
+
+      store = MartenDBSession::Store.new("testkey")
+
+      time = Time.local(Marten.settings.time_zone)
+      Timecop.freeze(time) do
+        store["test"] = "xyz"
+        store.save
+      end
+
+      MartenDBSession::Entry.all.size.should eq 1
+
+      store.clear_expired_entries
+
+      MartenDBSession::Entry.all.size.should eq 0
+    end
+
+    it "removes only entries which are expired" do
+      MartenDBSession::Entry.create!(
+        key: "expired_key",
+        expires: Time.local - Time::Span.new(hours: 48),
+        data: {"foo" => "bar"}.to_json
+      )
+
+      MartenDBSession::Entry.create!(
+        key: "not_expired_key",
+        expires: Time.local + Time::Span.new(hours: 48),
+        data: {"foo" => "bar"}.to_json
+      )
+
+      store = MartenDBSession::Store.new(nil)
+
+      MartenDBSession::Entry.all.size.should eq 2
+
+      store.clear_expired_entries
+
+      MartenDBSession::Entry.all.size.should eq 1
+    end
+  end
+
   describe "#flush" do
     it "destroys the entry associated with the store session key if it exists" do
       MartenDBSession::Entry.create!(
