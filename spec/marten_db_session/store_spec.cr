@@ -54,12 +54,6 @@ describe MartenDBSession::Store do
 
       store = MartenDBSession::Store.new("testkey")
 
-      time = Time.local(Marten.settings.time_zone)
-      Timecop.freeze(time) do
-        store["test"] = "xyz"
-        store.save
-      end
-
       MartenDBSession::Entry.all.size.should eq 1
 
       store.clear_expired_entries

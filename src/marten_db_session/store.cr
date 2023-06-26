@@ -33,7 +33,7 @@ module MartenDBSession
     end
 
     def clear_expired_entries : Nil
-      Entry.filter(expires__let: Time.local(Marten.settings.time_zone)).delete
+      Entry.filter(expires__lt: Time.local(Marten.settings.time_zone)).delete
     end
 
     private getter entry
