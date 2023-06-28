@@ -81,6 +81,7 @@ describe MartenDBSession::Store do
       store.clear_expired_entries
 
       MartenDBSession::Entry.all.size.should eq 1
+      MartenDBSession::Entry.first!.key.should eq "not_expired_key"
     end
   end
 
