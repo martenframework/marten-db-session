@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 (UNDER DEVELOPMENT)
+
+* Compatibility with Marten 0.4 (including the ability to clear expired sessions) was added.
+
 ## 0.2.0 (2023-04-15)
 
 * Rename shard to `marten-db-session` and namespace module to `MartenDBSession` to improve consistency with other session shards
