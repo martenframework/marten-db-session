@@ -48,7 +48,7 @@ module MartenDBSession
 
     private def persist_session_data(data = nil)
       data = data.nil? ? "{}" : data.to_json
-      expires = Time.local(Marten.settings.time_zone) + Time::Span.new(seconds: Marten.settings.sessions.cookie_max_age)
+      expires = Time.local(Marten.settings.time_zone) + expires_in
 
       if @entry.nil?
         @entry = Entry.create!(key: @session_key.not_nil!, data: data, expires: expires)

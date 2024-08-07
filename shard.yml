@@ -12,6 +12,7 @@ crystal: ">= 1.4.0"
 dependencies:
   marten:
     github: martenframework/marten
+    branch: main
 
 development_dependencies:
   ameba:

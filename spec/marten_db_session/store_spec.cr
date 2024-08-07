@@ -274,5 +274,26 @@ describe MartenDBSession::Store do
         {"foo" => "bar", "test" => "xyz"}.to_json
       )
     end
+
+    it "uses the custom session expiry when one is set" do
+      store = MartenDBSession::Store.new(nil)
+      store.expires_in = Time::Span.new(hours: 24)
+
+      time = Time.local(Marten.settings.time_zone)
+      Timecop.freeze(time) do
+        store["foo"] = "bar"
+        store.save
+      end
+
+      MartenDBSession::Entry.all.size.should eq 1
+      entry = MartenDBSession::Entry.first!
+      entry.key!.size.should eq 32
+      entry.expires!.at_beginning_of_second.should eq(
+        (time + Time::Span.new(hours: 24)).at_beginning_of_second
+      )
+      entry.data.should eq(
+        {"foo" => "bar"}.to_json
+      )
+    end
   end
 end
