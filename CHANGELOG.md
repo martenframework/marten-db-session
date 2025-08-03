@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0 (UNDER DEVELOPMENT)
+## 0.4.0 (2025-08-03)
 
 * Compatibility with Marten 0.6 (with the ability to use custom session expiry durations) was added.
 
